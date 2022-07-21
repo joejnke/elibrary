@@ -33,10 +33,13 @@ class _ebookState extends State<ebook> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Expanded(child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 8.0),
-              child: Image.asset('assets/images/page1.jpg'),
-            )),
+            Expanded(
+                flex: 10,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 8.0),
+                  child: Image.asset('assets/images/page1.jpg'),
+                ),
+            ),
             Row(
               children: [
                 Expanded(
@@ -80,7 +83,14 @@ class _ebookState extends State<ebook> {
                   ),
                 ),
               ],
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: LinearProgressIndicator(
+                value: 0.1,
+                backgroundColor: Colors.green.shade200,
+              ),
+            ),
           ],
     ),
       ),
