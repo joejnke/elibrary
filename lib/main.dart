@@ -29,9 +29,61 @@ class _ebookState extends State<ebook> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(
-          'Selam Ethiopia',
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Expanded(child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 8.0),
+              child: Image.asset('assets/images/page1.jpg'),
+            )),
+            Row(
+              children: [
+                Expanded(
+                    child:Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.lightBlueAccent.shade200)
+                        ),
+                        onPressed: () {
+                          print('Prev button pressed');
+                        },
+                        child: Text(
+                            'Prev',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                        ),
+                      ),
+                    ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: TextButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.lightBlueAccent.shade200)
+                      ),
+                      onPressed: () {
+                        print('Next button pressed');
+                      },
+                      child: Text(
+                          'Next',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
     ),
+      ),
     );
   }
 }
