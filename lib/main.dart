@@ -26,6 +26,34 @@ class ebook extends StatefulWidget {
 }
 
 class _ebookState extends State<ebook> {
+  int pageNumber = 0;
+  int maxPageNumber = 35;
+
+  void changePage (String direction) {
+    if (direction == 'next') {
+      if (pageNumber >= 35)
+        pageNumber=0;
+      else
+        ++pageNumber;
+    }
+
+    else if (direction == 'prev') {
+      if (pageNumber <= 0)
+        pageNumber=35;
+      else
+        --pageNumber;
+    }
+  }
+
+  double updateProgress() {
+    if (maxPageNumber == 0) {
+      return 0;
+    }
+    else {
+      return  pageNumber / maxPageNumber;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,7 +65,7 @@ class _ebookState extends State<ebook> {
                 flex: 10,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 8.0),
-                  child: Image.asset('assets/images/page1.jpg'),
+                  child: Image.asset('assets/images/page$pageNumber.JPG'),
                 ),
             ),
             Row(
@@ -50,7 +78,9 @@ class _ebookState extends State<ebook> {
                           backgroundColor: MaterialStateProperty.all(Colors.lightBlueAccent.shade200)
                         ),
                         onPressed: () {
-                          print('Prev button pressed');
+                          setState (() {
+                            changePage('prev');
+                          });
                         },
                         child: Text(
                             'Prev',
@@ -70,7 +100,9 @@ class _ebookState extends State<ebook> {
                           backgroundColor: MaterialStateProperty.all(Colors.lightBlueAccent.shade200)
                       ),
                       onPressed: () {
-                        print('Next button pressed');
+                        setState (() {
+                          changePage('next');
+                        });
                       },
                       child: Text(
                           'Next',
@@ -84,10 +116,11 @@ class _ebookState extends State<ebook> {
                 ),
               ],
             ),
-            Padding(
+            Padding
+              (
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: LinearProgressIndicator(
-                value: 0.1,
+                value: updateProgress(),
                 backgroundColor: Colors.green.shade200,
               ),
             ),
