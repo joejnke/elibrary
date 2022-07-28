@@ -28,20 +28,28 @@ class ebook extends StatefulWidget {
 class _ebookState extends State<ebook> {
   int pageNumber = 0;
   int maxPageNumber = 35;
+  bool isPrevActive = false;
+  bool isNextActive = true;
+
+  void setNextButtonState () {
+    pageNumber == maxPageNumber ? isNextActive = false : isNextActive = true;
+  }
+
+  void setPrevButtonState () {
+    pageNumber == 0 ? isPrevActive = false : isPrevActive = true;
+  }
 
   void changePage (String direction) {
     if (direction == 'next') {
-      if (pageNumber >= 35)
-        pageNumber=0;
-      else
-        ++pageNumber;
+      ++pageNumber;
+      setNextButtonState();
+      setPrevButtonState();
     }
 
     else if (direction == 'prev') {
-      if (pageNumber <= 0)
-        pageNumber=35;
-      else
-        --pageNumber;
+      --pageNumber;
+      setPrevButtonState();
+      setNextButtonState();
     }
   }
 
@@ -77,11 +85,11 @@ class _ebookState extends State<ebook> {
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(Colors.lightBlueAccent.shade200)
                         ),
-                        onPressed: () {
+                        onPressed: isPrevActive ?  () {
                           setState (() {
                             changePage('prev');
                           });
-                        },
+                        } : null,
                         child: Text(
                             'Prev',
                             style: TextStyle(
@@ -99,11 +107,11 @@ class _ebookState extends State<ebook> {
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(Colors.lightBlueAccent.shade200)
                       ),
-                      onPressed: () {
+                      onPressed: isNextActive ? () {
                         setState (() {
                           changePage('next');
                         });
-                      },
+                      } : null,
                       child: Text(
                           'Next',
                           style: TextStyle(
