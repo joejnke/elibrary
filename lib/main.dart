@@ -8,10 +8,11 @@ class Elibrary extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color(0xffaa5d62),
           title: Center(
               child: Text('E-library')),
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xffe9b7c3),
         body: SafeArea(
             child: ebook(),
         ),
@@ -83,7 +84,7 @@ class _ebookState extends State<ebook> {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: TextButton(
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.lightBlueAccent.shade200)
+                          backgroundColor: MaterialStateProperty.all(Color(0xff856572))
                         ),
                         onPressed: isPrevActive ?  () {
                           setState (() {
@@ -103,9 +104,12 @@ class _ebookState extends State<ebook> {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: TextButton(
+                    ch
+
+
+    TextButton(
                       style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.lightBlueAccent.shade200)
+                          backgroundColor: MaterialStateProperty.all(Color(0xff8b4a53)),
                       ),
                       onPressed: isNextActive ? () {
                         setState (() {
@@ -129,7 +133,8 @@ class _ebookState extends State<ebook> {
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: LinearProgressIndicator(
                 value: updateProgress(),
-                backgroundColor: Colors.green.shade200,
+                backgroundColor: Color(0x99856572),
+                color: Color(0xff8b4a53),
               ),
             ),
           ],
