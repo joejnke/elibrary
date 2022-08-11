@@ -10,7 +10,7 @@ class Elibrary extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Color(0xffaa5d62),
           title: Center(
-              child: Text('E-library')),
+              child: Text('የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን ታሪክ')),
         ),
         backgroundColor: Color(0xffe9b7c3),
         body: SafeArea(
@@ -92,7 +92,7 @@ class _ebookState extends State<ebook> {
                           });
                         } : null,
                         child: Text(
-                            'Prev',
+                            'ቀዳሚ',
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -104,10 +104,7 @@ class _ebookState extends State<ebook> {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    ch
-
-
-    TextButton(
+                    child: TextButton(
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(Color(0xff8b4a53)),
                       ),
@@ -117,7 +114,7 @@ class _ebookState extends State<ebook> {
                         });
                       } : null,
                       child: Text(
-                          'Next',
+                          'ቀጣይ',
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
